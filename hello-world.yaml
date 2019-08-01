@@ -1,0 +1,9 @@
+version: v1
+description: Workflow to echo a nice hello world message to the logs
+
+steps:
+- name: hello world
+  image: "alpine:latest"
+  spec:
+    script:
+    - echo "Hello world. I am $(whoami)!"
