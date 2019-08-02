@@ -2,8 +2,25 @@ version: v1
 description: Workflow to echo a nice hello world message to the logs
 
 steps:
-- name: hello world
-  image: "alpine:latest"
+- name: echo
+  image: alpine:latest
+  input:
+  - echo "Hello world. I am $(whoami)"
+  - cat /nebula/spec.json
   spec:
-    script:
-    - echo "Hello world. I am $(whoami)!"
+    hello: world
+- name: ls
+  image: alpine:latest
+  command: ls
+  args:
+  - "-la"
+  - "/"
+  dependsOn:
+    - echo
+- name: ps
+  image: alpine:latest
+  command: ps
+  args:
+  - "-a"
+  dependsOn:
+    - echo
