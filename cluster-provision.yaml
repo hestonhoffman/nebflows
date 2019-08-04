@@ -12,7 +12,7 @@ steps:
     project:
       $type: Secret
       name: cluster-project
-    clusterName: demo-gcp-cluster-kyle.k8s.local
+    clusterName: heston-test
     stateStoreName: demo-gcp-cluster-state
     nodeCount: 3
     zones: ["us-west1-a"]
