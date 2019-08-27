@@ -32,6 +32,6 @@ steps:
       $type: Secret
       name: slack-token
     channel: "#nebula-workflows"
-    message: "Provisioning K8s with Terraform succeeded! :Hooray:!"
+    message: "Heston provisioned a k8s cluster with Terraform!"
   dependsOn:
   - provision-gke-with-terraform
