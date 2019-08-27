@@ -1,0 +1,43 @@
+version: v1
+description: Nebula Provision Demo
+
+steps:
+- name: init-workflow
+  image: alpine:latest
+  input:
+    - echo "Initializing workflow - Nebula Provision Demo"
+    - echo "Provisioning a GKE cluster"
+- name: provision-gke-with-terraform
+  image: projectnebula/terraform:bf8ecb9
+  spec:
+    vars:
+      gcp_region: us-west1
+      gcp_location: us-west1-b
+      gcp_project: docs-pfc
+    workspace: docs-pfc
+    directory: provision-gke-terraform/infra/
+    credentials:
+      credentials.json:
+        $type: Secret
+        name: credentials
+    git:
+      ssh_key:
+        $type: Secret
+        name: ssh_key
+      known_hosts:
+        $type: Secret
+        name: known_hosts
+      name: nebula-workflow-examples
+      repository: git@github.com:hestonhoffman/nebula-workflow-examples.git
+  dependsOn:
+  - init-workflow
+- name: slack-notify
+  image: projectnebula/slack-notification:bf8ecb9
+  spec:
+    apitoken:
+      $type: Secret
+      name: slack-token
+    channel: "#nebula-workflows"
+    message: "Provisioning K8s with Terraform succeeded! :Hooray:!"
+  dependsOn:
+  - provision-gke-with-terraform
