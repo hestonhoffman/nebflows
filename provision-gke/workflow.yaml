@@ -11,18 +11,18 @@ steps:
   image: projectnebula/terraform:bf8ecb9
   spec:
     vars:
-      gcp_region: us-west1
-      gcp_location: us-west1-b
+      gcp_region: us-east1
+      gcp_location: us-east1-b
       gcp_project: docs-pfc
-    workspace: infra
+    workspace: docs-pfc
     directory: provision-gke/infra/
     credentials:
       credentials.json:
         $type: Secret
         name: credentials
     git:
-      name: 
-      repository: https://github.com/hestonhoffman/nebflows.git
+      name: nebflows
+      repository: https://github.com/hestonhoffman/nebflows
   dependsOn:
   - init-workflow
 - name: slack-notify
