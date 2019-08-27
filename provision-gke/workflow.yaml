@@ -14,7 +14,7 @@ steps:
       gcp_region: us-west1
       gcp_location: us-west1-b
       gcp_project: docs-pfc
-    workspace: docs-pfc
+    workspace: infra
     directory: provision-gke/infra/
     credentials:
       credentials.json:
