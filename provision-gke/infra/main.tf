@@ -2,6 +2,8 @@ terraform {
   required_version = ">= 0.11.11"
   backend "gcs" {
     bucket = "hestons-bucket"
+    prefix = "hestons"
+
   }
 }
 
@@ -12,7 +14,7 @@ provider "google" {
 }
 
 resource "google_container_cluster" "k8sexample" {
-  name               = "k8sexample-cluster"
+  name               = "nebula-test"
   description        = "example k8s cluster"
   location           = "${local.workspace["gcp_location"]}"
   initial_node_count = "${var.initial_node_count}"
