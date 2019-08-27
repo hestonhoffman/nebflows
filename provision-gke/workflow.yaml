@@ -15,20 +15,14 @@ steps:
       gcp_location: us-west1-b
       gcp_project: docs-pfc
     workspace: docs-pfc
-    directory: provision-gke-terraform/infra/
+    directory: provision-gke/infra/
     credentials:
       credentials.json:
         $type: Secret
         name: credentials
     git:
-      ssh_key:
-        $type: Secret
-        name: ssh_key
-      known_hosts:
-        $type: Secret
-        name: known_hosts
-      name: nebula-workflow-examples
-      repository: git@github.com:hestonhoffman/nebula-workflow-examples.git
+      name: 
+      repository: https://github.com/hestonhoffman/nebflows.git
   dependsOn:
   - init-workflow
 - name: slack-notify
