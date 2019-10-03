@@ -9,5 +9,5 @@ steps:
       $type: Secret
       name: slack-token
     channel: "#heston-test"
-    message: :hooray:"
+    message: ":hooray:"
     username: Heston Hoffman
