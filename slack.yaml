@@ -1,5 +1,5 @@
 version: v2
-description: 
+description: Slack
 
 steps:
 - name: slack-notification
@@ -10,4 +10,3 @@ steps:
       name: slack-token
     channel: "#heston-test"
     message: ":hooray:"
-    username: Heston Hoffman
