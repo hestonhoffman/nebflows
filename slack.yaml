@@ -3,7 +3,7 @@ description: Slack
 
 steps:
 - name: slack-notification
-  image: projectnebula/slack-notification:latest
+  image: projectnebula/slack-notification:86c541c
   spec:
     apitoken:
       $type: Secret
