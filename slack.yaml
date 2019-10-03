@@ -1,0 +1,13 @@
+version: v2
+description: 
+
+steps:
+- name: slack-notification
+  image: projectnebula/slack-notification:latest
+  spec:
+    apitoken:
+      $type: Secret
+      name: slack-token
+    channel: "#heston-test"
+    message: :hooray:"
+    username: Heston Hoffman
