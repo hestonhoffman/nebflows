@@ -6,7 +6,7 @@ steps:
   spec:
     message: {"$type": "Secret", "name": "secret-message"}
 - name: notify
-  image: projectnebula/slack-notification:037ae3f
+  image: projectnebula/slack-notification:latest
   dependsOn:
   - make-message
   spec:
