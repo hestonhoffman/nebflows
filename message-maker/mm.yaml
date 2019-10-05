@@ -1,0 +1,15 @@
+apiVersion: v1
+
+steps:
+- name: make-message
+  image: projectnebula/message-maker:latest
+  spec:
+    message: {"$type": "Secret", "name": "secret-message"}
+- name: notify
+  image: projectnebula/slack-notification:037ae3f
+  dependsOn:
+  - make-message
+  spec:
+    apitoken: {"$type": "Secret", "name": "slack-token"}
+    channel: "#nebula-workflows"
+    message: {"$type": "Output", "name": "message", "taskName": "make-message"}
