@@ -4,7 +4,9 @@ mkdir -p .deploy
 curl -LJ -o .deploy/nebula-cli \
     -H 'Accept: application/octet-stream' \
     "https://storage.googleapis.com/nebula-releases/nebula-v3.0.0-darwin-amd64"
+
 chmod +x .deploy/nebula-cli
+chmod +x scripts/nebula
 
 echo -n "${NEBULA_PASSWORD}" | .deploy/nebula-cli login -e "${NEBULA_EMAIL}" -p\
 
