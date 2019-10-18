@@ -3,7 +3,7 @@
 mkdir -p deploy
 curl -LJ -o deploy/nebula-cli \
     -H 'Accept: application/octet-stream' \
-    "https://storage.googleapis.com/nebula-releases/nebula-v3.0.0-darwin-amd64"
+    "https://storage.googleapis.com/nebula-releases/nebula-v3.0.0-linux-arm64"
 
 chmod +x deploy/nebula-cli
 
