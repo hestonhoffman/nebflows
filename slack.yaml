@@ -8,5 +8,6 @@ steps:
     apitoken:
       $type: Secret
       name: slack-token
-    channel: "#heston-test"
-    message: ":hooray:"
+    channel: "#nebula-workflows"
+    message: ":partywizard::partywizard::partywizard: Workflow deployed from CLI
+    :partywizard::partywizard::partywizard:"
