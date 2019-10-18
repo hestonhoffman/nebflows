@@ -1,6 +1,7 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
-
- 
+services:
+- docker
+jobs:
+  include:
+  - stage: test
+    script:
+    - "./scripts/nebula" 
