@@ -9,4 +9,4 @@ chmod +x deploy/nebula-cli
 
 echo -n "${NEBULA_PASSWORD}" | deploy/nebula-cli login -e "${NEBULA_EMAIL}" -p\
 
-echo -n deploy/nebula-cli workflow run -n "heston-notify-slack"
+deploy/nebula-cli workflow run -n "heston-notify-slack"
