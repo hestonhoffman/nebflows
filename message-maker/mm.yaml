@@ -16,6 +16,9 @@ steps:
       $type: Secret
       name: slack-token
     channel: "#nebula-workflows"
+    username: 
+      $type: parameter
+      name: username
     message: 
       $type: Output
       name: message
