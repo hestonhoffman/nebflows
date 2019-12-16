@@ -1,0 +1,40 @@
+version: v1
+description: Nebula Provision Demo
+
+steps:
+- name: init-workflow
+  image: alpine:latest
+  input:
+    - echo "Initializing workflow - Nebula Provision Demo"
+    - echo "Provisioning a GKE cluster"
+- name: approval
+  description: Provisioning resources requires approval 
+  type: approval
+- name: provision-gke-with-terraform
+  image: projectnebula/terraform:bf8ecb9
+  spec:
+    vars:
+      gcp_region: us-east1
+      gcp_location: us-east1-b
+      gcp_project: docs-pfc
+    workspace: docs-pfc
+    directory: provision-gke/infra/
+    credentials:
+      credentials.json:
+        $type: Secret
+        name: credentials
+    git:
+      name: nebflows
+      repository: https://github.com/hestonhoffman/nebflows
+  dependsOn:
+  - approval
+- name: slack-notify
+  image: projectnebula/slack-notification:bf8ecb9
+  spec:
+    apitoken:
+      $type: Secret
+      name: slack-token
+    channel: "#nebula-workflows"
+    message: "Heston provisioned a k8s cluster with Terraform!"
+  dependsOn:
+  - provision-gke-with-terraform

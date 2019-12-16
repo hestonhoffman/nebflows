@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: nebula-example
+   labels:
+     run: nebula-example
+spec:
+   ports:
+   - port: 80
+     targetPort: 80
+     protocol: TCP
+   type: LoadBalancer
+   selector:
+     run: nebula-example
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nebula-example
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: nebula-example
+    spec:
+      containers:
+      - name: nebula-example-gatsby
+        image: gcr.io/nebula-contrib/nebula-example-gatsby
+        ports:
+        - containerPort: 80
+---
