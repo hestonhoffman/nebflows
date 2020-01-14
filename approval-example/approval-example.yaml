@@ -1,5 +1,5 @@
 version: v1
-description: Nebula Provision Demo
+description: Nebula approval example
 
 steps:
 - name: init-workflow
@@ -10,6 +10,8 @@ steps:
 - name: approval
   description: Provisioning resources requires approval 
   type: approval
+  dependsOn:
+  - init-workflow
 - name: provision-gke-with-terraform
   image: projectnebula/terraform:bf8ecb9
   spec:
