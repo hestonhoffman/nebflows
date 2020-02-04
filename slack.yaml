@@ -1,6 +1,10 @@
 version: v2
 description: Slack
 
+parameters:
+  message:
+    description: Slack message
+
 steps:
 - name: slack-notification
   image: projectnebula/slack-notification:86c541c
