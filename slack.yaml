@@ -3,7 +3,7 @@ description: Slack
 
 steps:
 - name: slack-notification
-  image: projectnebula/slack-notification:86c541c
+  image: projectnebula/slack-notification
   spec:
     apitoken:
       $type: Secret
@@ -11,7 +11,7 @@ steps:
     channel: "#nebula-workflows"
     message: |
       "Test
-
-      @hasegawa
-      
+      <br/>
+      <br/>
+      <br/>
       End of Test"
