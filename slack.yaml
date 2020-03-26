@@ -9,5 +9,9 @@ steps:
       $type: Secret
       name: slack-token
     channel: "#nebula-workflows"
-    message: ":partywizard::partywizard::partywizard: Workflow deployed from Travis
-    :partywizard::partywizard::partywizard:"
+    message: |
+      "Test
+
+      @hasegawa
+      
+      End of Test"
