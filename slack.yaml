@@ -10,8 +10,6 @@ steps:
       name: slack-token
     channel: "#nebula-workflows"
     message: |
-      "Test
-      <br/>
-      <br/>
-      <br/>
-      End of Test"
+      Test\
+      \
+      End of Test
